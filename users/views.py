@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from .forms import SignupForm
 # Create your views here.
 
-def sign(request):
+def SignupView(request):
     form=SignupForm()
     if request.method=='POST':
         form=SignupForm(request.POST,files=request.FILES)
@@ -11,19 +11,10 @@ def sign(request):
             user=form.save(commit=False)
             user.password=make_password(form.cleaned_data['password1'])
             user.save()
-            return redirect('saxifa')
+            return redirect('home')
     context={
-            'form':form
-        }
+        'form':form
+    }
 
 
-    return render(request,'registration/signup.html',context)
-
-
-
-
-
-
-
-
-
+    return render(request,"registration/signup.html",context)
