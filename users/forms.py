@@ -1,15 +1,15 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
-from .models import CustomUser
 
 
 class SignupForm(forms.ModelForm):
     password1=forms.CharField(label="Parol Kiriting",widget=forms.PasswordInput)
     password2=forms.CharField(label="Parolni qayta tasdiqlang",widget=forms.PasswordInput)
     class Meta:
-        model=CustomUser
-        fields=('username','first_name','last_name','email','photo_user','password1','password2')
+        model=User
+        fields=('username','last_name','email','password1','password2')
 
     def clean_password2(self):
         password1=self.cleaned_data.get('password1')

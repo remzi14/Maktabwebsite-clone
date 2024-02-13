@@ -133,9 +133,6 @@ STATICFILES_DIRS=[
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-AUTH_USER_MODEL = 'users.CustomUser'
-
 LOGIN_REDIRECT_URL='saxifa'
 LOGOUT_REDIRECT_URL='saxifa'
 LOGIN_URL='login'
